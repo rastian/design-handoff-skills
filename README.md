@@ -1,10 +1,10 @@
-# Design Handoff Skill for Claude and other AI tools
+# Design Handoff Skill for Claude, Codex, ChatGPT, and other AI tools
 
 An AI skill for product designers, UX designers, and UI designers. It helps you hand a design to engineering so that it gets built as intended.
 
 Use it to check whether a design is ready for development, to write the developer handoff, and to run design QA on the finished build.
 
-It works in Claude, in Claude Code, and in other AI tools that read `SKILL.md` agent skills. It works with Figma links, screenshots, or a plain description.
+It works in Claude, Claude Code, OpenAI Codex, ChatGPT, and other AI tools that support the open Agent Skills format (`SKILL.md`). It works with Figma links, screenshots, or a plain description.
 
 ## Who it is for
 
@@ -51,11 +51,36 @@ cp -r design-handoff-skills/skills/design-handoff ~/.claude/skills/
 
 For one project only, copy the folder into `.claude/skills/` inside that project.
 
-### Other AI tools
+### OpenAI Codex
 
-If your tool supports skills, put the `design-handoff` folder where the tool reads skills.
+Copy the `design-handoff` folder into `.agents/skills/` inside your project:
 
-If it does not, open `skills/design-handoff/SKILL.md`, paste its content into the chat or into the tool's custom instructions, and then write your request.
+```bash
+git clone https://github.com/rastian/design-handoff-skills
+mkdir -p .agents/skills
+cp -r design-handoff-skills/skills/design-handoff .agents/skills/
+```
+
+The Codex documentation lists the other locations, for example for all your projects: [Agent Skills in Codex](https://developers.openai.com/codex/skills).
+
+### ChatGPT
+
+Skills in ChatGPT are available on eligible Business, Enterprise, Healthcare, and Edu accounts.
+
+1. In the sidebar, select **Plugins**.
+2. Select the **Skills** tab.
+3. Select **Create**, then **Upload from your computer**.
+4. Upload the skill. Use the ZIP from the Claude app steps above.
+
+OpenAI's guide shows the current steps: [Skills in ChatGPT](https://help.openai.com/en/articles/20001066).
+
+On other ChatGPT plans, use the paste method below.
+
+### Any other AI tool
+
+If your tool supports Agent Skills, put the `design-handoff` folder where the tool reads skills.
+
+If it does not, open `skills/design-handoff/SKILL.md`, paste its content into the chat or into the tool's custom instructions, and then write your request. This works in any AI chat tool.
 
 ## Use it
 
@@ -67,7 +92,7 @@ Is this design ready to hand off? Tell me what is missing.
 [Describe the screen, or paste the frame link.]
 ```
 
-In tools without slash commands, write "Use the design-handoff skill" at the start.
+In Codex, write `$design-handoff` in place of `/design-handoff`. In ChatGPT and other tools without slash commands, write "Use the design-handoff skill" at the start.
 
 The [prompt guide](skills/design-handoff/PROMPTS.md) has a ready prompt for each mode, for native mobile screens, for AI features, and for follow-ups.
 
@@ -87,7 +112,7 @@ Give the skill as many of these as you can. Each one removes open questions.
 
 The skill was run on seven written scenarios: a small change, a new feature, an agency build, a build review, a native iOS screen, a readiness check, and an AI feature. Each run used a fresh AI agent that had only the skill and the designer's message.
 
-It has not yet been tested on a live design file through a design tool connector. If you try that, please open an issue and share what happened.
+All test runs used Claude. The skill follows the open Agent Skills format, but it has not yet been tested in Codex or ChatGPT. It has also not been tested on a live design file through a design tool connector. If you try any of these, please open an issue and share what happened.
 
 ## License
 

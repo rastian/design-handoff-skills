@@ -1,7 +1,7 @@
 # Design Handoff: prompt guide
 
 Copy a prompt, replace the parts in [brackets], and send it together with the skill.
-In tools without slash commands, start with "Use the design-handoff skill" instead of `/design-handoff`.
+In Codex, write `$design-handoff` in place of `/design-handoff`. In ChatGPT and other tools without slash commands, start with "Use the design-handoff skill".
 
 ## What to give it
 

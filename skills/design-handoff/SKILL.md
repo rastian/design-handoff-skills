@@ -1,7 +1,6 @@
 ---
 name: design-handoff
 description: Prepare a design for engineering, check whether it is ready, or review the finished build. Use when a product designer says a design is ready for development, asks for a handoff, a dev spec, a handoff checklist, "is this ready to hand off", acceptance criteria for a design, a handoff for an agency or contractor, or a design QA review of a build. Works for web, iOS, Android, and AI features. Works from a design file link, screenshots, or a plain description.
-argument-hint: "<design link, screenshots, or description> [check | quick | full | external | qa]"
 ---
 
 # Design Handoff
